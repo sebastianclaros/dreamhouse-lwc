@@ -9,15 +9,15 @@ if ( $args[0] -AND $args[1] ) {
     git branch $userstory
     git checkout $userstory
     sf org create scratch -y $dias -a $userstory -d -w 10 --username $email --definition-file $definitionFile
-    sfdx force:user:password:generate -u $userstory
-    sfdx force:source:push -u $userstory
-    sfdx force:user:permset:assign -n dreamhouse -u $userstory
+    sf org generate password --target-org $userstory
+    sf project deploy start --target-org $userstory
+    sf org assign permset --name dreamhouse --target-org $userstory
     sf data import tree --plan .\data\sample-data-plan.json -u $userstory
-    sfdx force:user:display
-    sfdx force:apex:execute -u $userstory -f ..\apex\debugMode.apex
+    sfdx org display user
+    sf apex run --target-org $userstory -f ..\apex\debugMode.apex
     if ( $omni ) {
         write-host("Instalar Omnistudio puede tardar mucho tiempo, revise el email")
-        echo y | sf package install -u $userstory --package 04t5c000000o7RXAAY
+        echo y | sf package install --target-org $userstory --package 04t5c000000o7RXAAY
     }
 } else {
     write-host("createScratch story-id story-subject days isOmni.
