@@ -1,11 +1,16 @@
 {
     "orgName": "User Story",
+    "description": "Scratch for Teco Squad A", 
     "edition": "Enterprise",
+    "language": "English",
     "features": ["Walkthroughs", "EnableSetPasswordInApi"],
     "settings": {
+          "productSettings": {
+            "enableQuantitySchedule": true,
+            "enableRevenueSchedule": true
+          },
           "accountSettings": {
-              "enableRelateContactToMultipleAccounts": true,
-              "enableAccountTeams": true
+            "enableRelateContactToMultipleAccounts": true
           },
           "quoteSettings": {
             "enableQuote" : true
