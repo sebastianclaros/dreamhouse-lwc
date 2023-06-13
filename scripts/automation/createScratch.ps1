@@ -6,8 +6,8 @@ $email =  $userstory + '@teco.com.ar'
 
 if ( $args[0] -AND $args[1] ) {
     #    sf org list --clean --no-prompt
-    #git branch $userstory
-    #git checkout $userstory
+    git branch $userstory
+    git checkout $userstory
     sf org create scratch -y $dias --description $description --name $userstory  -a $userstory -d -w 10 --username $email --definition-file $definitionFile
     sf org generate password --target-org $userstory
     sf project deploy start --target-org $userstory
