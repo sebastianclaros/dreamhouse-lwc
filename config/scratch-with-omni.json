@@ -9,9 +9,6 @@
             "enableQuantitySchedule": true,
             "enableRevenueSchedule": true
           },
-          "accountSettings": {
-            "enableRelateContactToMultipleAccounts": true
-          },
           "quoteSettings": {
             "enableQuote" : true
           }
