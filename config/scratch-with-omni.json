@@ -11,9 +11,6 @@
           },
           "quoteSettings": {
             "enableQuote" : true
-          },
-          "accountSettings": {
-            "enableRelateContactToMultipleAccounts": true
           }
     }
 }
