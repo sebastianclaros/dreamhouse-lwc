@@ -1,7 +1,7 @@
 $userstory =  $args[0]
 $description =  $args[1]
 $dias = $args[2] ? $args[2]: 7
-$definitionFile = $args[3] ? '.\config\scratch-with-omni.json' : '.\config\squada-scratch-def.json'
+$definitionFile = $args[3] ? '.\config\scratch-with-omni.json' : '.\config\project-scratch-def.json'
 $email =  $userstory + '@teco.com.ar'
 
 if ( $args[0] -AND $args[1] ) {
