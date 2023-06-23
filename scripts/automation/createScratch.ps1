@@ -18,7 +18,6 @@ if ( $args[0] -AND $args[1] ) {
         write-host("Por favor active ContactsToMultipleAccounts desde Configuracion > Cuentas > Configuracion de Cuentas ")
         write-host("https://test.salesforce.com/lightning/setup/AccountSettings/home ")
         write-host("Modificar y seleccionar Permitir a los usuarios relacionar un contacto con cuentas múltiples y guardar!")
-        
         write-host("Instalar Omnistudio puede tardar mucho tiempo, revise el email")
         echo y | sf package install --target-org $userstory --package 04t5c000000o7RXAAY
     }
