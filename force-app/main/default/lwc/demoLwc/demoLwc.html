@@ -1,0 +1,12 @@
+<template>
+<!--
+    <div if:true={recordId}>
+        <template for:each={recordWrap} for:item="fieldObject">
+            {fieldObject.name}: {fieldObject.value}
+        </template>
+    </div>
+-->
+    <template if:true={recordId} for:each={_fields} for:item="field">
+        <c-demo-field key={field.fieldApiName} record={recordObject.fields} field={field.fieldApiName}></c-demo-field>
+    </template>
+</template>
