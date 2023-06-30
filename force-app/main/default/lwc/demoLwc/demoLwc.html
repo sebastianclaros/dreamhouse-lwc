@@ -1,12 +1,19 @@
 <template>
-<!--
-    <div if:true={recordId}>
-        <template for:each={recordWrap} for:item="fieldObject">
-            {fieldObject.name}: {fieldObject.value}
+    <template lwc:if={isLoading}>
+        Loading...
+    </template>
+    <template lwc:elseif={isError}>
+        Ups se cago...
+    </template>
+    <template lwc:else>
+        <!--
+    
+            <template for:each={recordWrap} for:item="fieldObject">
+                {fieldObject.name}: {fieldObject.value}
+            </template>
+        -->        
+        <template for:each={_fields} for:item="field">
+            <c-demo-field key={field.fieldApiName} record={recordObject.fields} field={field.fieldApiName}></c-demo-field>
         </template>
-    </div>
--->
-    <template if:true={recordId} for:each={_fields} for:item="field">
-        <c-demo-field key={field.fieldApiName} record={recordObject.fields} field={field.fieldApiName}></c-demo-field>
     </template>
 </template>

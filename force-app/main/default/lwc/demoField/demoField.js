@@ -5,10 +5,10 @@ export default class DemoField extends LightningElement {
     @api field;
 
     get fieldValue() {
-        if ( this.record === undefined || this.record[field] === undefined) {
+        if ( this.record === undefined || this.record[this.field] === undefined) {
             return '';
         }
 
-        return this.record[field].value;
+        return this.record[this.field].value;
     }
 }

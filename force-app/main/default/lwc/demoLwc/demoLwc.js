@@ -5,9 +5,24 @@ import NAME_FIELD from '@salesforce/schema/Property__c.Name';
 import PRICE_FIELD from '@salesforce/schema/Property__c.Price__c';
 
 export default class DemoLwc extends LightningElement {
-   @wire(getRecord, { recordId: '$recordId', fields: [NAME_FIELD, PRICE_FIELD] }) wiredAction({data}) {
-      this.recordObject = data;
+   state = 'loading';
+   
+   get isLoading() {
+      return this.state === 'loading';
+   }
+   get isError() {
+      return this.state === 'error';
+   }
+
+   @wire(getRecord, { recordId: '$recordId', fields: [NAME_FIELD, PRICE_FIELD] }) wiredAction({data, error}) {
+      if ( data) {
+         this.recordObject = data;
+         this.state = 'loaded';
+      } else if (error) {
+         this.state = 'error';
+      }
    };
+
    
    @track recordObject;
    @api recordId;
@@ -24,6 +39,10 @@ export default class DemoLwc extends LightningElement {
          }
       })
       return retValue;
+   }
+
+   errorCallback() {
+      this.state = 'error';
    }
 }
 
