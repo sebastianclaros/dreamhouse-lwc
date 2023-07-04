@@ -1,19 +1,26 @@
 <template>
-    <template lwc:if={isLoading}>
-        Loading...
-    </template>
-    <template lwc:elseif={isError}>
-        Ups se cago...
-    </template>
+    <template lwc:if={isLoading}> Loading... </template>
+    <template lwc:elseif={isError}> Ups se cago... </template>
     <template lwc:else>
         <!--
     
             <template for:each={recordWrap} for:item="fieldObject">
                 {fieldObject.name}: {fieldObject.value}
             </template>
-        -->        
+        -->
         <template for:each={_fields} for:item="field">
-            <c-demo-field key={field.fieldApiName} record={recordObject.fields} field={field.fieldApiName}></c-demo-field>
+            <c-demo-field
+                key={field.fieldApiName}
+                record={recordObject.fields}
+                field={field.fieldApiName}
+            ></c-demo-field>
         </template>
+        <!--
+
+    -Images!
+    <template for:each={pictures} for:item="picture">
+        {picture.Title}
+    </template>
+-->
     </template>
 </template>

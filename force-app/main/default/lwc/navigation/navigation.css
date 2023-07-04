@@ -1,0 +1,19 @@
+.menu {
+    width: 100%;
+    height: 100%;
+}
+.menu-item {
+    border: 1px solid gray;
+}
+
+.menu-item:hover {
+    border: 1px solid blue;
+    background-color: gray;
+}
+
+.menu-icon {
+    padding: 0.25 em;
+}
+.menu-title {
+    text-align: left;
+}
