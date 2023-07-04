@@ -1,8 +1,8 @@
 import { LightningElement } from 'lwc';
-import constants from '@salesforce/resourceUrl/constants';
+import { NAVIGATION_VARIANT_CARDS } from 'c/constants';
 
 export default class NavigationValidacionIdentidad extends LightningElement {
-    variant = constants.NAVIGATION_VARIANT_CARDS;
+    variant = NAVIGATION_VARIANT_CARDS;
 
     get menu() {
         return [

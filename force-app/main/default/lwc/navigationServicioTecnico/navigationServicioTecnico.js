@@ -1,8 +1,8 @@
 import { LightningElement } from 'lwc';
-import constants from '@salesforce/resourceUrl/constants';
+import { NAVIGATION_VARIANT_LIST } from 'c/constants';
 
 export default class NavigationServicioTecnico extends LightningElement {
-    variant = constants.NAVIGATION_VARIANT_LIST;
+    variant = NAVIGATION_VARIANT_LIST;
 
     get menu() {
         return [

@@ -1,13 +1,14 @@
 import { LightningElement, api } from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
-import constants from '@salesforce/resourceUrl/constants';
+import { NAVIGATION_VARIANT_LIST } from 'c/constants';
+
 import listTemplate from './templates/list.html';
 import cardsTemplate from './templates/cards.html';
 
 export default class Navigation extends NavigationMixin(LightningElement) {
     _data = [];
 
-    @api variant = constants.NAVIGATION_VARIANT_LIST;
+    @api variant = NAVIGATION_VARIANT_LIST;
 
     @api
     get menu() {
@@ -23,7 +24,7 @@ export default class Navigation extends NavigationMixin(LightningElement) {
     }
 
     render() {
-        return this.variant === constants.NAVIGATION_VARIANT_LIST
+        return this.variant === NAVIGATION_VARIANT_LIST
             ? listTemplate
             : cardsTemplate;
     }

@@ -3,20 +3,20 @@ import { getRecord } from 'lightning/uiRecordApi';
 
 import NAME_FIELD from '@salesforce/schema/Property__c.Name';
 import PRICE_FIELD from '@salesforce/schema/Property__c.Price__c';
-import constants from '@salesforce/resourceUrl/constants';
+import { STATE_LOADING, STATE_ERROR, STATE_LOADED } from 'c/constants';
 import getPictures from '@salesforce/apex/PropertyController.getPictures';
 
 export default class DemoLwc extends LightningElement {
-    state = constants.STATE_LOADING;
+    state = STATE_LOADING;
     @track recordObject;
     @api recordId;
     _fields = [NAME_FIELD, PRICE_FIELD];
 
     get isLoading() {
-        return this.state === constants.STATE_LOADING;
+        return this.state === STATE_LOADING;
     }
     get isError() {
-        return this.state === constants.STATE_ERROR;
+        return this.state === STATE_ERROR;
     }
 
     @wire(getPictures, { propertyId: '$recordId' }) pictures;
@@ -28,9 +28,9 @@ export default class DemoLwc extends LightningElement {
     getRecord({ data, error }) {
         if (data) {
             this.recordObject = data;
-            this.state = constants.STATE_LOADED;
+            this.state = STATE_LOADED;
         } else if (error) {
-            this.state = constants.STATE_ERROR;
+            this.state = STATE_ERROR;
         }
     }
 
@@ -50,6 +50,6 @@ export default class DemoLwc extends LightningElement {
     }
 
     errorCallback() {
-        this.state = constants.STATE_ERROR;
+        this.state = STATE_ERROR;
     }
 }
